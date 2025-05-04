@@ -1,0 +1,476 @@
+[
+    {
+    "name": "Interstellar",
+    "photoURL": "Hobart",
+    "summary": "A journey through space and time Drama.",
+    "rating": 5,
+    "releaseYear": 2014,
+    "genres": [
+        { "name": "Sci-Fi", "summary": "Science fiction adventures." },
+        { "name": "Drama", "summary": "Emotional and character-driven stories." }
+    ],
+    "movieActors": [
+        { "name": "Matthew McConaughey", "photoURL": "Melbourne", "summary": "The pilot of the spaceship." },
+        { "name": "Anne Hathaway", "photoURL": "Canberra", "summary": "Scientist and crewmate." }
+    ]
+},
+    {
+    "name": "Inception",
+    "photoURL": "Brisbane",
+    "summary": "Dream within a dream.",
+    "rating": 4,
+    "releaseYear": 2010,
+    "genres": [
+        { "name": "Action", "summary": "Fast-paced and thrilling." },
+        { "name": "Sci-Fi", "summary": "Mind-bending science fiction." }
+    ],
+    "movieActors": [
+        { "name": "Leonardo DiCaprio", "photoURL": "Adelaide", "summary": "Mastermind dream thief." }
+    ]
+},
+    {
+    "name": "The Dark Knight",
+    "photoURL": "Perth",
+    "summary": "Batman faces the Joker in Gotham City.",
+    "rating": 5,
+    "releaseYear": 2008,
+    "genres": [
+        { "name": "Action", "summary": "Heroic battles and intense combat." },
+        { "name": "Crime", "summary": "Stories involving criminal activities." }
+    ],
+    "movieActors": [
+        { "name": "Christian Bale", "photoURL": "Hobart", "summary": "The Dark Knight himself." },
+        { "name": "Heath Ledger", "photoURL": "Melbourne", "summary": "Iconic performance as the Joker." }
+    ]
+},
+    {
+    "name": "The Matrix",
+    "photoURL": "Canberra",
+    "summary": "A hacker discovers reality is an illusion.",
+    "rating": 3,
+    "releaseYear": 1999,
+    "genres": [
+        { "name": "Sci-Fi", "summary": "Technological dystopian worlds." },
+        { "name": "Action", "summary": "Martial arts and mind-bending stunts." }
+    ],
+    "movieActors": [
+        { "name": "Keanu Reeves", "photoURL": "Brisbane", "summary": "The One." },
+        { "name": "Laurence Fishburne", "photoURL": "Adelaide", "summary": "Mentor and leader." }
+    ]
+},
+    {
+    "name": "The Shawshank Redemption",
+    "photoURL": "Perth",
+    "summary": "Hope and friendship inside prison walls.",
+    "rating": 5,
+    "releaseYear": 1994,
+    "genres": [
+        { "name": "Drama", "summary": "Emotionally powerful storytelling." },
+        { "name": "Crime", "summary": "Wrongly imprisoned for a crime." }
+    ],
+    "movieActors": [
+        { "name": "Tim Robbins", "photoURL": "Hobart", "summary": "Andy Dufresne." },
+        { "name": "Morgan Freeman", "photoURL": "Melbourne", "summary": "Narrator and mentor figure." }
+    ]
+},
+    {
+    "name": "Avatar",
+    "photoURL": "Canberra",
+    "summary": "Humans and Na'vi clash on Pandora.",
+    "rating": 4,
+    "releaseYear": 2009,
+    "genres": [
+        { "name": "Adventure", "summary": "Epic journeys on alien worlds." },
+        { "name": "Sci-Fi", "summary": "Extraterrestrial exploration." }
+    ],
+    "movieActors": [
+        { "name": "Sam Worthington", "photoURL": "Brisbane", "summary": "Jake Sully, the Avatar." },
+        { "name": "Zoe Saldana", "photoURL": "Adelaide", "summary": "Neytiri, the warrior." }
+    ]
+},
+    {
+    "name": "Gladiator",
+    "photoURL": "Perth",
+    "summary": "A general becomes a slave, then a hero.",
+    "rating": 5,
+    "releaseYear": 2000,
+    "genres": [
+        { "name": "Action", "summary": "Sword fights and arena battles." },
+        { "name": "Drama", "summary": "Revenge and redemption." }
+    ],
+    "movieActors": [
+        { "name": "Russell Crowe", "photoURL": "Hobart", "summary": "Maximus the Gladiator." },
+        { "name": "Joaquin Phoenix", "photoURL": "Melbourne", "summary": "The twisted emperor." }
+    ]
+},
+    {
+    "name": "Pulp Fiction",
+    "photoURL": "Melbourne",
+    "summary": "The lives of two mob hitmen, a boxer, a gangster's wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",
+    "rating": 5,
+    "releaseYear": 1994,
+    "genres": [
+        { "name": "Crime", "summary": "Focuses on illegal activities such as robbery, corruption, and criminal conspiracies." },
+        { "name": "Drama", "summary": "Character-driven narratives that explore complex emotions and relationships." },
+        { "name": "Thriller", "summary": "Engages the audience with suspenseful and exciting moments." }
+    ],
+    "movieActors": [
+        { "name": "John Travolta", "photoURL": "Canberra", "summary": "An American actor known for his roles in 'Grease' and 'Pulp Fiction'." },
+        { "name": "Uma Thurman", "photoURL": "Brisbane", "summary": "An American actress and model best known for her roles in 'Pulp Fiction' and 'Kill Bill'." }
+    ]
+},
+    {
+    "name": "Forrest Gump",
+    "photoURL": "Hobart",
+    "summary": "The presidencies of Kennedy and Johnson, the Vietnam War, the Watergate scandal, and other historical events unfold from the perspective of an Alabama man with an extraordinary life.",
+    "rating": 5,
+    "releaseYear": 1994,
+    "genres": [
+        { "name": "Drama", "summary": "Emotionally rich narratives that focus on personal conflicts and relationships." },
+        { "name": "Romance", "summary": "Explores love and relationships with emotional depth." }
+    ],
+    "movieActors": [
+        { "name": "Tom Hanks", "photoURL": "Adelaide", "summary": "An American actor and filmmaker, known for his roles in 'Forrest Gump' and 'Cast Away'." },
+        { "name": "Robin Wright", "photoURL": "Melbourne", "summary": "An American actress known for her roles in 'House of Cards' and 'Forrest Gump'." }
+    ]
+},
+    {
+    "name": "Fight Club",
+    "photoURL": "Brisbane",
+    "summary": "An insomniac office worker forms an underground fight club with a soap salesman, leading to unexpected consequences.",
+    "rating": 5,
+    "releaseYear": 1999,
+    "genres": [
+        { "name": "Drama", "summary": "Emotionally rich narratives that explore complex emotions and relationships." },
+        { "name": "Thriller", "summary": "Engages the audience with suspenseful and exciting moments." }
+    ],
+    "movieActors": [
+        { "name": "Brad Pitt", "photoURL": "Perth", "summary": "An American actor known for his roles in 'Fight Club' and 'Once Upon a Time in Hollywood'." },
+        { "name": "Edward Norton", "photoURL": "Hobart", "summary": "An American actor known for his roles in 'American History X' and 'Fight Club'." }
+    ]
+},
+    
+    {
+    "name": "The Godfather",
+    "photoURL": "Canberra",
+    "summary": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
+    "rating": 5,
+    "releaseYear": 1972,
+    "genres": [
+        { "name": "Crime", "summary": "Focuses on illegal activities such as mafia operations and corruption." },
+        { "name": "Drama", "summary": "Emotionally rich narratives that focus on personal conflicts and relationships." }
+    ],
+    "movieActors": [
+        { "name": "Marlon Brando", "photoURL": "Adelaide", "summary": "An American actor who is widely regarded as one of the greatest actors of all time." },
+        { "name": "Al Pacino", "photoURL": "Brisbane", "summary": "An American actor known for his roles in 'The Godfather' and 'Scarface'." }
+    ]
+},
+    {
+    "name": "The Social Network",
+    "photoURL": "Hobart",
+    "summary": "The story of the founding of Facebook and the legal battles that followed, told through the eyes of its young creator, Mark Zuckerberg.",
+    "rating": 5,
+    "releaseYear": 2010,
+    "genres": [
+        { "name": "Biography", "summary": "Focuses on real-life figures and events." },
+        { "name": "Drama", "summary": "Emotionally rich narratives that focus on personal conflicts and relationships." }
+    ],
+    "movieActors": [
+        { "name": "Jesse Eisenberg", "photoURL": "Perth", "summary": "An American actor known for his role as Mark Zuckerberg in 'The Social Network'." },
+        { "name": "Andrew Garfield", "photoURL": "Canberra", "summary": "An English-American actor known for his roles in 'The Social Network' and 'The Amazing Spider-Man'." }
+    ]
+},
+    {
+    "name": "Titanic",
+    "photoURL": "Adelaide",
+    "summary": "A young couple from different social backgrounds fall in love aboard the ill-fated voyage of the R.M.S. Titanic.",
+    "rating": 5,
+    "releaseYear": 1997,
+    "genres": [
+        { "name": "Drama", "summary": "Emotionally rich narratives that focus on personal conflicts and relationships." },
+        { "name": "Romance", "summary": "Explores love and relationships with emotional depth." }
+    ],
+    "movieActors": [
+        { "name": "Leonardo DiCaprio", "photoURL": "Melbourne", "summary": "An American actor known for his roles in 'Titanic' and 'The Revenant'." },
+        { "name": "Kate Winslet", "photoURL": "Brisbane", "summary": "An English actress known for her roles in 'Titanic' and 'The Reader'." }
+    ]
+},
+    {
+    "name": "The Silence of the Lambs",
+    "photoURL": "Perth",
+    "summary": "A young FBI cadet must confide in an incarcerated and manipulative killer to help catch another serial killer, a madman who skins his victims.",
+    "rating": 5,
+    "releaseYear": 1991,
+    "genres": [
+        { "name": "Crime", "summary": "Focused on illegal activities such as robbery, corruption, and criminal conspiracies." },
+        { "name": "Drama", "summary": "Emotionally rich narratives that focus on personal conflicts and relationships." },
+        { "name": "Thriller", "summary": "Engages the audience with suspenseful and exciting moments." }
+    ],
+    "movieActors": [
+        { "name": "Jodie Foster", "photoURL": "Canberra", "summary": "An American actress known for her roles in 'The Silence of the Lambs' and 'Contact'." },
+        { "name": "Anthony Hopkins", "photoURL": "Melbourne", "summary": "A Welsh actor best known for his role as Hannibal Lecter in 'The Silence of the Lambs'." }
+    ]
+},
+    {
+    "name": "The Prestige",
+    "photoURL": "Hobart",
+    "summary": "Two magicians engage in a bitter rivalry, trying to create the ultimate stage illusion while dealing with their own personal struggles.",
+    "rating": 5,
+    "releaseYear": 2006,
+    "genres": [
+        { "name": "Drama", "summary": "Emotionally rich narratives that focus on personal conflicts and relationships." },
+        { "name": "Thriller", "summary": "Engages the audience with suspenseful and exciting moments." },
+        { "name": "Mystery", "summary": "Centered around uncovering secrets or solving crimes." }
+    ],
+    "movieActors": [
+        { "name": "Christian Bale", "photoURL": "Melbourne", "summary": "An American actor known for his intense performances in films like 'American Psycho' and 'The Prestige'." },
+        { "name": "Hugh Jackman", "photoURL": "Canberra", "summary": "An Australian actor known for his roles in 'The Prestige' and the 'X-Men' series." }
+    ]
+},
+    {
+    "name": "The Wolf of Wall Street",
+    "photoURL": "Brisbane",
+    "summary": "The story of Jordan Belfort, a stockbroker who engages in corrupt practices, ultimately leading to his downfall.",
+    "rating": 5,
+    "releaseYear": 2013,
+    "genres": [
+        { "name": "Biography", "summary": "Focuses on real-life figures and events." },
+        { "name": "Crime", "summary": "Focused on illegal activities such as robbery, corruption, and criminal conspiracies." }
+    ],
+    "movieActors": [
+        { "name": "Leonardo DiCaprio", "photoURL": "Adelaide", "summary": "An American actor known for his roles in 'Titanic' and 'The Revenant'." },
+        { "name": "Jonah Hill", "photoURL": "Perth", "summary": "An American actor known for his roles in 'The Wolf of Wall Street' and 'Superbad'." }
+    ]
+},
+    {
+    "name": "12 Angry Men",
+    "photoURL": "Melbourne",
+    "summary": "A jury deliberates the guilt or innocence of a defendant, with one juror standing in opposition to the others and pushing them to reconsider their decisions.",
+    "rating": 5,
+    "releaseYear": 1957,
+    "genres": [
+        { "name": "Drama", "summary": "Emotionally rich narratives that focus on personal conflicts and relationships." },
+        { "name": "Crime", "summary": "Focused on illegal activities such as robbery, corruption, and criminal conspiracies." }
+    ],
+    "movieActors": [
+        { "name": "Henry Fonda", "photoURL": "Canberra", "summary": "An American actor and filmmaker known for his roles in '12 Angry Men' and 'The Grapes of Wrath'." },
+        { "name": "Lee J. Cobb", "photoURL": "Brisbane", "summary": "An American actor known for his roles in '12 Angry Men' and 'The Exorcist'." }
+    ]
+},
+    {
+    "name": "Citizen Kane",
+    "photoURL": "Adelaide",
+    "summary": "Following the death of a publishing tycoon, news reporters scramble to uncover the meaning of his final utterance: 'Rosebud.'",
+    "rating": 5,
+    "releaseYear": 1941,
+    "genres": [
+        { "name": "Drama", "summary": "Emotionally rich narratives that focus on personal conflicts and relationships." },
+        { "name": "Mystery", "summary": "Centered around uncovering secrets or solving crimes." }
+    ],
+    "movieActors": [
+        { "name": "Orson Welles", "photoURL": "Canberra", "summary": "An American actor, director, and producer known for his groundbreaking work in film, especially 'Citizen Kane.'" },
+        { "name": "Joseph Cotten", "photoURL": "Melbourne", "summary": "An American actor known for his roles in 'Citizen Kane' and 'The Third Man'." }
+    ]
+},
+    {
+    "name": "The Departed",
+    "photoURL": "Perth",
+    "summary": "An undercover cop and a mole in the police attempt to identify each other while infiltrating an Irish gang in Boston.",
+    "rating": 5,
+    "releaseYear": 2006,
+    "genres": [
+        { "name": "Crime", "summary": "Focused on illegal activities such as robbery, corruption, and criminal conspiracies." },
+        { "name": "Drama", "summary": "Emotionally rich narratives that focus on personal conflicts and relationships." }
+    ],
+    "movieActors": [
+        { "name": "Leonardo DiCaprio", "photoURL": "Brisbane", "summary": "An American actor known for his roles in 'Titanic' and 'The Revenant'." },
+        { "name": "Matt Damon", "photoURL": "Hobart", "summary": "An American actor known for his roles in 'Good Will Hunting' and 'The Departed'." }
+    ]
+},
+    {
+    "name": "Schindler's List",
+    "photoURL": "Canberra",
+    "summary": "In German-occupied Poland during World War II, Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.",
+    "rating": 5,
+    "releaseYear": 1993,
+    "genres": [
+        { "name": "Drama", "summary": "Emotionally rich narratives that focus on personal conflicts and relationships." },
+        { "name": "History", "summary": "Fictionalized accounts of real-life events from history." },
+        { "name": "War", "summary": "Focused on the struggles and sacrifices of war." }
+    ],
+    "movieActors": [
+        { "name": "Liam Neeson", "photoURL": "Brisbane", "summary": "An Irish actor known for his roles in 'Schindler's List' and 'Taken'." },
+        { "name": "Ben Kingsley", "photoURL": "Hobart", "summary": "An English actor known for his roles in 'Schindler's List' and 'Gandhi'." }
+    ]
+},
+    
+    {
+    "name": "The Godfather",
+    "photoURL": "Canberra",
+    "summary": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
+    "rating": 5,
+    "releaseYear": 1972,
+    "genres": [
+        { "name": "Crime", "summary": "Focuses on illegal activities such as mafia operations and corruption." },
+        { "name": "Drama", "summary": "Emotionally rich narratives that focus on personal conflicts and relationships." }
+    ],
+    "movieActors": [
+        { "name": "Marlon Brando", "photoURL": "Adelaide", "summary": "An American actor who is widely regarded as one of the greatest actors of all time." },
+        { "name": "Al Pacino", "photoURL": "Brisbane", "summary": "An American actor known for his roles in 'The Godfather' and 'Scarface'." }
+    ]
+},
+    {
+    "name": "The Social Network",
+    "photoURL": "Hobart",
+    "summary": "The story of the founding of Facebook and the legal battles that followed, told through the eyes of its young creator, Mark Zuckerberg.",
+    "rating": 5,
+    "releaseYear": 2010,
+    "genres": [
+        { "name": "Biography", "summary": "Focuses on real-life figures and events." },
+        { "name": "Drama", "summary": "Emotionally rich narratives that focus on personal conflicts and relationships." }
+    ],
+    "movieActors": [
+        { "name": "Jesse Eisenberg", "photoURL": "Perth", "summary": "An American actor known for his role as Mark Zuckerberg in 'The Social Network'." },
+        { "name": "Andrew Garfield", "photoURL": "Canberra", "summary": "An English-American actor known for his roles in 'The Social Network' and 'The Amazing Spider-Man'." }
+    ]
+},
+    {
+    "name": "Titanic",
+    "photoURL": "Adelaide",
+    "summary": "A young couple from different social backgrounds fall in love aboard the ill-fated voyage of the R.M.S. Titanic.",
+    "rating": 5,
+    "releaseYear": 1997,
+    "genres": [
+        { "name": "Drama", "summary": "Emotionally rich narratives that focus on personal conflicts and relationships." },
+        { "name": "Romance", "summary": "Explores love and relationships with emotional depth." }
+    ],
+    "movieActors": [
+        { "name": "Leonardo DiCaprio", "photoURL": "Melbourne", "summary": "An American actor known for his roles in 'Titanic' and 'The Revenant'." },
+        { "name": "Kate Winslet", "photoURL": "Brisbane", "summary": "An English actress known for her roles in 'Titanic' and 'The Reader'." }
+    ]
+},
+    {
+    "name": "The Silence of the Lambs",
+    "photoURL": "Perth",
+    "summary": "A young FBI cadet must confide in an incarcerated and manipulative killer to help catch another serial killer, a madman who skins his victims.",
+    "rating": 5,
+    "releaseYear": 1991,
+    "genres": [
+        { "name": "Crime", "summary": "Focused on illegal activities such as robbery, corruption, and criminal conspiracies." },
+        { "name": "Drama", "summary": "Emotionally rich narratives that focus on personal conflicts and relationships." },
+        { "name": "Thriller", "summary": "Engages the audience with suspenseful and exciting moments." }
+    ],
+    "movieActors": [
+        { "name": "Jodie Foster", "photoURL": "Canberra", "summary": "An American actress known for her roles in 'The Silence of the Lambs' and 'Contact'." },
+        { "name": "Anthony Hopkins", "photoURL": "Melbourne", "summary": "A Welsh actor best known for his role as Hannibal Lecter in 'The Silence of the Lambs'." }
+    ]
+},
+    {
+    "name": "The Prestige",
+    "photoURL": "Hobart",
+    "summary": "Two magicians engage in a bitter rivalry, trying to create the ultimate stage illusion while dealing with their own personal struggles.",
+    "rating": 5,
+    "releaseYear": 2006,
+    "genres": [
+        { "name": "Drama", "summary": "Emotionally rich narratives that focus on personal conflicts and relationships." },
+        { "name": "Thriller", "summary": "Engages the audience with suspenseful and exciting moments." },
+        { "name": "Mystery", "summary": "Centered around uncovering secrets or solving crimes." }
+    ],
+    "movieActors": [
+        { "name": "Christian Bale", "photoURL": "Melbourne", "summary": "An American actor known for his intense performances in films like 'American Psycho' and 'The Prestige'." },
+        { "name": "Hugh Jackman", "photoURL": "Canberra", "summary": "An Australian actor known for his roles in 'The Prestige' and the 'X-Men' series." }
+    ]
+},
+    {
+    "name": "The Wolf of Wall Street",
+    "photoURL": "Brisbane",
+    "summary": "The story of Jordan Belfort, a stockbroker who engages in corrupt practices, ultimately leading to his downfall.",
+    "rating": 5,
+    "releaseYear": 2013,
+    "genres": [
+        { "name": "Biography", "summary": "Focuses on real-life figures and events." },
+        { "name": "Crime", "summary": "Focused on illegal activities such as robbery, corruption, and criminal conspiracies." }
+    ],
+    "movieActors": [
+        { "name": "Leonardo DiCaprio", "photoURL": "Adelaide", "summary": "An American actor known for his roles in 'Titanic' and 'The Revenant'." },
+        { "name": "Jonah Hill", "photoURL": "Perth", "summary": "An American actor known for his roles in 'The Wolf of Wall Street' and 'Superbad'." }
+    ]
+},
+    {
+    "name": "12 Angry Men",
+    "photoURL": "Melbourne",
+    "summary": "A jury deliberates the guilt or innocence of a defendant, with one juror standing in opposition to the others and pushing them to reconsider their decisions.",
+    "rating": 5,
+    "releaseYear": 1957,
+    "genres": [
+        { "name": "Drama", "summary": "Emotionally rich narratives that focus on personal conflicts and relationships." },
+        { "name": "Crime", "summary": "Focused on illegal activities such as robbery, corruption, and criminal conspiracies." }
+    ],
+    "movieActors": [
+        { "name": "Henry Fonda", "photoURL": "Canberra", "summary": "An American actor and filmmaker known for his roles in '12 Angry Men' and 'The Grapes of Wrath'." },
+        { "name": "Lee J. Cobb", "photoURL": "Brisbane", "summary": "An American actor known for his roles in '12 Angry Men' and 'The Exorcist'." }
+    ]
+},
+    {
+    "name": "Citizen Kane",
+    "photoURL": "Adelaide",
+    "summary": "Following the death of a publishing tycoon, news reporters scramble to uncover the meaning of his final utterance: 'Rosebud.'",
+    "rating": 5,
+    "releaseYear": 1941,
+    "genres": [
+        { "name": "Drama", "summary": "Emotionally rich narratives that focus on personal conflicts and relationships." },
+        { "name": "Mystery", "summary": "Centered around uncovering secrets or solving crimes." }
+    ],
+    "movieActors": [
+        { "name": "Orson Welles", "photoURL": "Canberra", "summary": "An American actor, director, and producer known for his groundbreaking work in film, especially 'Citizen Kane.'" },
+        { "name": "Joseph Cotten", "photoURL": "Melbourne", "summary": "An American actor known for his roles in 'Citizen Kane' and 'The Third Man'." }
+    ]
+},
+    {
+    "name": "The Departed",
+    "photoURL": "Perth",
+    "summary": "An undercover cop and a mole in the police attempt to identify each other while infiltrating an Irish gang in Boston.",
+    "rating": 5,
+    "releaseYear": 2006,
+    "genres": [
+        { "name": "Crime", "summary": "Focused on illegal activities such as robbery, corruption, and criminal conspiracies." },
+        { "name": "Drama", "summary": "Emotionally rich narratives that focus on personal conflicts and relationships." }
+    ],
+    "movieActors": [
+        { "name": "Leonardo DiCaprio", "photoURL": "Brisbane", "summary": "An American actor known for his roles in 'Titanic' and 'The Revenant'." },
+        { "name": "Matt Damon", "photoURL": "Hobart", "summary": "An American actor known for his roles in 'Good Will Hunting' and 'The Departed'." }
+    ]
+},
+    {
+    "name": "Schindler's List",
+    "photoURL": "Canberra",
+    "summary": "In German-occupied Poland during World War II, Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.",
+    "rating": 5,
+    "releaseYear": 1993,
+    "genres": [
+        { "name": "Drama", "summary": "Emotionally rich narratives that focus on personal conflicts and relationships." },
+        { "name": "History", "summary": "Fictionalized accounts of real-life events from history." },
+        { "name": "War", "summary": "Focused on the struggles and sacrifices of war." }
+    ],
+    "movieActors": [
+        { "name": "Liam Neeson", "photoURL": "Brisbane", "summary": "An Irish actor known for his roles in 'Schindler's List' and 'Taken'." },
+        { "name": "Ben Kingsley", "photoURL": "Hobart", "summary": "An English actor known for his roles in 'Schindler's List' and 'Gandhi'." }
+    ]
+},
+    {
+    "name": "The Good, the Bad, and the Ugly",
+    "photoURL": "Melbourne",
+    "summary": "A bounty hunting scam joins three men in the bloody Civil War battle for a fortune in gold in this epic spaghetti western.",
+    "rating": 5,
+    "releaseYear": 1966,
+    "genres": [
+        { "name": "Western", "summary": "Set in the American West, typically during the late 19th century." },
+        { "name": "Action", "summary": "Explosive and intense sequences involving physical combat and chases." }
+    ],
+    "movieActors": [
+        { "name": "Clint Eastwood", "photoURL": "Adelaide", "summary": "An American actor known for his roles in 'The Good, the Bad, and the Ugly' and 'Dirty Harry'." },
+        { "name": "Eli Wallach", "photoURL": "Canberra", "summary": "An American actor known for his role as Tuco in 'The Good, the Bad, and the Ugly'." }
+    ]
+}
+]
+
