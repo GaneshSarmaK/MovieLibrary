@@ -56,7 +56,7 @@ final actor GenreDataSource {
             }
             genres = allGenres
         } catch {
-            print("Error fetching genres: \(error)")
+            AppLogger.dataStore.error("Error fetching genres: \(error)")
         }
         
         return genres
@@ -73,7 +73,7 @@ final actor GenreDataSource {
                 )
             )
         } catch {
-            print("Error fetching genres: \(error)")
+            AppLogger.dataStore.error("Error fetching genres: \(error)")
         }
         return genres
         
@@ -110,6 +110,7 @@ final actor GenreDataSource {
     func save(){
         do {
             try modelContext.save()
+            AppLogger.dataStore.info("Genre data saved successfully")
         } catch {
             fatalError(error.localizedDescription)
         }

@@ -8,12 +8,32 @@
 import SwiftUI
 import SwiftData
 
+/**
+ Hero section displaying trending movies with 3D scroll animations.
+ 
+ Creates an eye-catching horizontal carousel at the top of the landing page with
+ advanced scroll effects including rotation, offset, and blur transitions.
+ 
+ ## Features
+ - Horizontal scrolling carousel
+ - 3D rotation effect based on scroll position
+ - Blur effect during scroll
+ - Snap-to-item scrolling (one at a time)
+ - Tap to navigate to movie details
+ - "Trending" label overlay
+ 
+ ## Scroll Effects
+ - **Identity** (centered): No effects applied
+ - **Scrolling**: Applies rotation, offset, and blur based on scroll direction
+ - Uses `scrollTransition` modifier for smooth animations
+ */
 struct HeroSectionView: View {
     
     @Environment(MovieViewModel.self) var movieViewModel
     @Environment(NavigationRouter.self) var router
     @Environment(\.horizontalSizeClass) var sizeClass
-    
+    @Environment(\.imageManager) var imageManager
+
     var body: some View {
         ScrollView(.horizontal) {
             return LazyHStack(spacing: 10) {
@@ -27,7 +47,9 @@ struct HeroSectionView: View {
                         }
                         .scrollTransition { content, phase in
                             content
-                                .offset(x: phase.isIdentity ? 0 : phase.value < 0 ? 35 : -30)
+                                // Horizontal offset based on scroll direction
+                                .offset(x: phase.isIdentity ? 0 : phase.value < 0 ? 15 : -15)
+                                // 3D rotation on Y-axis creates carousel effect
                                 .rotation3DEffect(
                                     .init(degrees: phase.isIdentity ? 0 : phase.value < 0 ? 10 : -10),
                                     axis: (0, 1, 0),
@@ -35,6 +57,7 @@ struct HeroSectionView: View {
                                     anchorZ: 150,
                                     perspective: 1
                                 )
+                                // Blur non-centered cards for depth effect
                                 .blur(radius: phase.isIdentity ? 0 : 5)
                         }
                         .zIndex(-Double(index))
@@ -55,26 +78,5 @@ struct HeroSectionView: View {
                 .fontWeight(.bold)
                 .padding(.bottom, 8)
         }
-    }
-}
-
-
-struct HeroCardView: View {
-    
-    let movie: Movie
-    
-    var body: some View {
-        ImageManager.loadImageSmart(filename: movie.photoURL!)
-            .resizable()
-            .aspectRatio(contentMode: .fill)
-//            .scaledToFill()
-            .overlay(alignment: .bottomLeading) {
-                Text("\(movie.name)")
-                    .font(.title2)
-                    .fontWeight(.semibold)
-                    .padding()
-                    .frame(maxWidth: .infinity, maxHeight: 60, alignment: .leading)
-                    .background(.thinMaterial)
-            }
     }
 }

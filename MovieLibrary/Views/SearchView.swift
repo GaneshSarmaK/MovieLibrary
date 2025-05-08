@@ -9,79 +9,115 @@ import SwiftUI
 import SwiftData
 import PhotosUI
 
+/**
+ Global search view for finding movies and actors across the library.
+ 
+ Provides a searchable interface with debounced search (0.5s delay) to query movies and actors.
+ Displays results in grid layouts with conditional rendering for actors.
+ 
+ ## Features
+ - Searchable text field with live search
+ - Debounced search (500ms) to prevent excessive queries
+ - Automatic cancellation of previous search tasks
+ - Movie grid (always visible)
+ - Actor grid (visible only when search has results)
+ - Data refresh on view appear/disappear
+ 
+ ## Search Behavior
+ - Empty search: Shows all movies and actors
+ - With text: Performs partial string match across names and summaries
+ - Debouncing: Waits 0.5s after last keystroke before searching
+ 
+ ## Implementation Note
+ Uses Task cancellation pattern for debouncing search input.
+ */
 struct SearchView: View {
     
     @Environment(\.horizontalSizeClass) var sizeClass
+    @Environment(ActorViewModel.self) var actorViewModel
+    @Environment(MovieViewModel.self) var movieViewModel
+    @Environment(GenreViewModel.self) var genreViewModel
     @Environment(GlobalSearchViewModel.self) var globalSearchViewModel
     @Environment(NavigationRouter.self) var router
 
     @State private var searchText: String = ""
-
+    @State private var task: Task<Void, Error>? = nil
     
     var body: some View {
         VStack {
             
 //            controlPanel()
             
+            Text("Movies")
+                .font(.headline)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding()
+
             MovieGridView()
             
             Divider()
             
-            ActorGridView()
-            
-//            HStack {
-//                Button {
-//                    router.path.append(.movieCreationView(nil))
-//                } label: {
-//                    Text("Add new Movie")
-//                        .padding()
-//                        .background(Color.blue)
-//                        .foregroundColor(.white)
-//                        .clipShape(Capsule())
-//                }
-//                
-//                Button {
-//                    router.path.append(.actorCreationView(nil))
-//                } label: {
-//                    Text("Add new Actor")
-//                        .padding()
-//                        .background(Color.blue)
-//                        .foregroundColor(.white)
-//                        .clipShape(Capsule())
-//                }
-//            }
-            
-            
+            if !searchText.isEmpty && globalSearchViewModel.movieActors.count > 0{
+                    Text("Actors")
+                        .font(.headline)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding()
+                        .animation(.easeInOut)
+                    
+                    ActorGridView()
+                        .frame(height: SizeClass.imageSize(for: sizeClass) + 50)
+                        .animation(.easeInOut)
+            }
+   
         }
-        .searchable(text: $searchText, prompt: "Type to search for movies")
+        .searchable(text: $searchText, prompt: "Type to search")
         .onChange(of: searchText) {
             searchMovies(searchParam: searchText)
         }
         .onAppear {
-            Task {
-                await globalSearchViewModel.fetchAll()
+            if searchText.isEmpty {
+                Task {
+                    await globalSearchViewModel.fetchAll()
+                }
             }
             
+        }
+        .onDisappear() {
+            Task {
+                await movieViewModel.fetchAll()
+                await genreViewModel.fetchAll()
+                await actorViewModel.fetchAll()
+                await globalSearchViewModel.fetchAll()
+            }
         }
         
         
         
     }
     
+    /**
+     Performs debounced search with 0.5 second delay.
+     
+     Cancels any existing search task and creates a new one. Waits 500ms before executing
+     the actual search to prevent excessive queries while user is typing.
+     
+     - Parameter searchParam: The search string to query
+     */
     func searchMovies(searchParam: String) {
-
-            Task {
-                
+        // Cancel previous search task if still running
+        task?.cancel()
+        task = nil
+        let newTask = Task {
+            // Debounce: wait 0.5s before searching
+            try await Task.sleep(for: .seconds(0.5))
                 if !searchParam.isEmpty {
                     await globalSearchViewModel.fetchByPartialString(searchParam)
                 } else {
                     await globalSearchViewModel.fetchAll()
                 }
-                
-                print(globalSearchViewModel.movies.count)
-                print(globalSearchViewModel.movieActors.count)
 
             }
+        task = newTask
     }
     
     

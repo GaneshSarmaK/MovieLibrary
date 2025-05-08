@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Brisbane.jpeg",
+      "filename" : "Brisbane 1.jpeg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Brisbane.jpeg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "Brisbane 2.jpeg",
       "idiom" : "universal",
       "scale" : "3x"
     }

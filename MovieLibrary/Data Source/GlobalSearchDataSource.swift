@@ -30,7 +30,7 @@ final actor GlobalSearchDataSource {
         do{
             allGenres = try modelContext.fetch(genreFetchDescriptor)
         } catch {
-            print("Error fetching genres: \(error)")
+            AppLogger.dataStore.error("Error fetching genres: \(error)")
         }
         
         return allGenres
@@ -53,7 +53,7 @@ final actor GlobalSearchDataSource {
         do{
             allMovies = try modelContext.fetch(movieFetchDescriptor)
         } catch {
-            print("Error fetching genres: \(error)")
+            AppLogger.dataStore.error("Error fetching movies by partial string: \(error)")
         }
         return allMovies
         
@@ -77,7 +77,7 @@ final actor GlobalSearchDataSource {
         do{
             allMovieActors = try modelContext.fetch(movieActorFetchDescriptor)
         } catch {
-            print("Error fetching genres: \(error)")
+            AppLogger.dataStore.error("Error fetching actors by partial string: \(error)")
         }
         return allMovieActors
     }
@@ -92,7 +92,7 @@ final actor GlobalSearchDataSource {
                 )
             )
         } catch {
-            print("Error fetching movies: \(error)")
+            AppLogger.dataStore.error("Error fetching all movies: \(error)")
         }
         return movies
 
@@ -108,7 +108,7 @@ final actor GlobalSearchDataSource {
                 )
             )
         } catch {
-            print("Error fetching genres: \(error)")
+            AppLogger.dataStore.error("Error fetching all genres: \(error)")
         }
         return genres
         
@@ -123,7 +123,7 @@ final actor GlobalSearchDataSource {
                 )
             )
         } catch {
-            print("Error fetching movieActors: \(error)")
+            AppLogger.dataStore.error("Error fetching all actors: \(error)")
         }
         return movieActors
         
@@ -175,7 +175,7 @@ final actor GlobalSearchDataSource {
             movieActors = allActors
             
         } catch {
-            print("Error fetching movieActors: \(error)")
+            AppLogger.dataStore.error("Error fetching actors by filter: \(error)")
         }
         
         return movieActors
@@ -226,7 +226,7 @@ final actor GlobalSearchDataSource {
             }
             genres = allGenres
         } catch {
-            print("Error fetching genres: \(error)")
+            AppLogger.dataStore.error("Error fetching genres by filter: \(error)")
         }
         
         return genres
@@ -306,7 +306,7 @@ final actor GlobalSearchDataSource {
                 movies = allMovies
             }
         } catch {
-            print("Error fetching movies: \(error)")
+            AppLogger.dataStore.error("Error fetching movies by filter: \(error)")
         }
         
         return movies

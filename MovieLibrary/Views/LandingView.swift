@@ -7,15 +7,43 @@
 
 import SwiftUI
 import SwiftData
+import UIKit
 
+/**
+ Main landing page of the MovieLibrary app.
+ 
+ Serves as the root view containing the navigation stack and coordinating all child views.
+ Displays the hero section, genre sections, and provides access to search and movie creation.
+ 
+ ## Features
+ - Navigation stack with custom router
+ - Hero section with featured content
+ - Genre-based movie organization
+ - Quick access toolbar (Add movie, Search)
+ - Automatic data refresh on navigation return
+ 
+ ## Navigation Destinations
+ Handles routing to:
+ - Movie creation/edit forms
+ - Actor creation/edit forms
+ - Genre creation/edit forms
+ - Movie detail views
+ - Global search
+ 
+ ## Data Management
+ Refreshes all view models when:
+ - View first appears
+ - User returns to landing (navigation path becomes empty)
+ */
 struct LandingView: View {
     
     @Environment(\.horizontalSizeClass) var sizeClass
+    @Environment(\.scenePhase) var scenePhase
     @Environment(ActorViewModel.self) var actorViewModel
     @Environment(MovieViewModel.self) var movieViewModel
     @Environment(GenreViewModel.self) var genreViewModel
+    @Environment(GlobalSearchViewModel.self) var globalSearchViewModel
     
-    @State private var globalSearchViewModel = GlobalSearchViewModel()
     @State private var router: NavigationRouter = .init()
     
     var body: some View {
@@ -26,34 +54,30 @@ struct LandingView: View {
                         .padding(.top, -10)
                         
                     
-                    ForEach(genreViewModel.genres) { genre in
-                        Divider()
-                        
-                        GenreSectionView(genre: genre)
-                        
-
-                        
-                    }
+                    GenreSectionView()
                 }
             }
-            .toolbarVisibility(.hidden, for: .navigationBar)
-            .overlay(alignment: .top){
-                HStack {
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
                     Button {
                         router.path.append(.movieCreationView(nil))
                     } label: {
                         Image(systemName: "plus.circle")
-                            .padding(15)
                     }
-                    Spacer()
+                    .glassEffect()
+                }
+                
+                ToolbarItem(placement: .topBarTrailing){
                     Button {
                         router.path.append(.searchView)
                     } label: {
                         Image(systemName: "magnifyingglass")
-                            .padding(15)
                     }
+                    .glassEffect()
                 }
             }
+//            .toolbarVisibility(.hidden, for: .navigationBar)
+            
 //            .overlay(alignment: .topTrailing) {
 //                HStack {
 //                    Button {
@@ -71,6 +95,7 @@ struct LandingView: View {
 //                    }
 //                }
 //            }
+            // Route to appropriate view based on destination type
             .navigationDestination(for: NavigationDestinations.self) { destination in
                 switch(destination) {
                     case .movieCreationView(let movie):
@@ -88,19 +113,23 @@ struct LandingView: View {
         }
         .environment(router)
         .onAppear {
-            Task {
-                await movieViewModel.fetchAll()
-                await genreViewModel.fetchAll()
-                await actorViewModel.fetchAll()
+            refreshData()
+        }
+        .onChange(of: router.path.count) { oldValue, newValue in
+            // Refresh data when user navigates back to landing
+            if router.path.isEmpty {
+                refreshData()
             }
         }
     }
     
+    /// Refreshes all data from view models
     private func refreshData() {
         Task {
             await movieViewModel.fetchAll()
             await genreViewModel.fetchAll()
             await actorViewModel.fetchAll()
+            await globalSearchViewModel.fetchAll()
         }
     }
     
@@ -109,5 +138,9 @@ struct LandingView: View {
 
 #Preview {
     LandingView()
+        .environment(ActorViewModel())
+        .environment(GenreViewModel())
+        .environment(MovieViewModel())
+        .environment(GlobalSearchViewModel())
 }
 

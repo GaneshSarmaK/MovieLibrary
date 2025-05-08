@@ -20,7 +20,7 @@ final actor ActorDataSource {
                 )
             )
         } catch {
-            print("Error fetching movieActors: \(error)")
+            AppLogger.dataStore.error("Error fetching movieActors: \(error)")
         }
         return movieActors
         
@@ -72,7 +72,7 @@ final actor ActorDataSource {
             movieActors = allActors
             
         } catch {
-            print("Error fetching movieActors: \(error)")
+            AppLogger.dataStore.error("Error fetching movieActors: \(error)")
         }
         
         return movieActors
@@ -113,6 +113,7 @@ final actor ActorDataSource {
     func save() {
         do {
             try modelContext.save()
+            AppLogger.dataStore.info("Actor data saved successfully")
         } catch {
             fatalError(error.localizedDescription)
         }
