@@ -1,0 +1,12 @@
+# Images
+*.png
+*.jpg
+*.jpeg
+# Xcode build files
+DerivedData/
+build/
+*.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/
+# Large assets
+**/Assets.xcassets/**/*.png
+**/Assets.xcassets/**/*.jpg
