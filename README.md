@@ -1,84 +1,145 @@
 # MovieLibrary iOS App
 
-A comprehensive movie library management application built with SwiftUI and SwiftData for iOS.
+A modern iOS movie library management application with stunning UI design, built with SwiftUI and SwiftData.
 
 ## Overview
 
-MovieLibrary is a full-featured iOS application that allows users to create, manage, and organize their personal movie collection. The app supports movies, actors, and genres with rich relationships between entities, image management, and advanced filtering capabilities.
+MovieLibrary is a feature-rich iOS application for managing your personal movie collection. The app features a vibrant glass-morphism UI with smart image management, comprehensive movie/actor/genre relationships, and intelligent caching.
+
+## Features
+
+### Modern UI Design 🎨
+- **Glass Cards**: Ultra-thin material backgrounds with colored shadows
+- **Vibrant Gradients**: Color-coded entities (Blue=Movies, Pink=Actors, Green=Genres)
+- **Smooth Animations**: Interactive star ratings, bounce effects, and transitions
+- **Responsive Design**: Adapts to iPhone and iPad with size class utilities
+
+### Core Functionality
+- ✅ Full CRUD operations for movies, actors, and genres
+- ✅ Smart image management with 16:10 auto-cropping and 30% JPEG compression
+- ✅ In-memory image caching via NSCache
+- ✅ Many-to-many relationships (movies ↔ actors ↔ genres)
+- ✅ Favorites system for all entity types
+- ✅ Real-time search with debouncing
+- ✅ Interactive 5-star rating system
+- ✅ SwiftData persistence
+
+### Advanced Features
+- **Image Processing**: Automatic 16:10 aspect ratio cropping and compression
+- **Smart Caching**: In-memory image cache for performance
+- **Selection UI**: Checkmark badges for actors, gradient swap for genres
+- **Multi-select**: Intuitive selection interfaces for creating relationships
+
+## Requirements
+
+- iOS 26.1+
+- Xcode 26.1+
+- Swift 6.2+
+- **Git LFS** (for image assets)
+
+## Setup and Installation
+
+### Initial Setup
+
+⚠️ **Important**: This project uses Git LFS for image assets. Don't download as ZIP!
+
+#### 1. Install Git LFS (First Time Only)
+
+```bash
+# Install Git LFS via Homebrew
+brew install git-lfs
+
+# Initialize Git LFS
+git lfs install
+```
+
+#### 2. Clone the Repository
+
+```bash
+# Clone the repo
+git clone https://github.com/yourusername/MovieLibrary.git
+cd MovieLibrary
+
+# Pull LFS files (images)
+git lfs pull
+```
+
+#### 3. Open in Xcode
+
+```bash
+open MovieLibrary.xcodeproj
+```
+
+### Troubleshooting
+
+**If you get "Distill failed" error:**
+```bash
+cd MovieLibrary
+git lfs pull
+rm -rf ~/Library/Developer/Xcode/DerivedData/*
+```
+
+Then rebuild in Xcode.
 
 ## Architecture
 
 ### MVVM Pattern
-The app follows the Model-View-ViewModel (MVVM) architecture:
 - **Models**: SwiftData-backed persistent models (`Movie`, `MovieActor`, `Genre`)
 - **ViewModels**: Observable classes managing business logic and state
-- **Views**: SwiftUI views for the user interface
+- **Views**: SwiftUI views with modern glass-morphism design
 - **Data Sources**: Actor-based data access layer using `@ModelActor`
 
 ### Key Components
 
 #### Models (`/Model`)
-- `Movie.swift`: Core movie entity with ratings, posters, and relationships
+- `Movie.swift`: Movie entity with ratings, posters, and relationships
 - `MovieActor.swift`: Actor/performer entity  
 - `Genre.swift`: Movie genre categorization
 
-All models use SwiftData for persistence and support:
+All models use SwiftData with:
 - Unique identifiers
 - Many-to-many relationships
 - Favorite marking
 - Equatable and Hashable conformance
 
 #### ViewModels (`/ViewModel`)
-- `MovieViewModel.swift`: Manages movie CRUD operations and state
+- `MovieViewModel.swift`: Manages movie CRUD operations
 - `ActorViewModel.swift`: Handles actor management
 - `GenreViewModel.swift`: Manages movie genres
-- `GlobalSearchViewModel.swift`: Unified search across all entities
+- `GlobalSearchViewModel.swift`: Unified search across entities
 
-ViewModels are marked with `@Observable` for automatic SwiftUI updates.
+ViewModels use `@Observable` for automatic SwiftUI updates.
 
-#### Data Sources (`/Data Source`)
-- `MovieDataSource.swift`: SwiftData operations for movies with advanced filtering
-- `ActorDataSource.swift`: Actor persistence layer
-- `GenreDataSource.swift`: Genre data management
-- `GlobalSearchDataSource.swift`: Cross-entity search queries
-
-Data sources are `actor`-based for thread-safe database operations.
-
-#### Utilities (`/Utilities`)
-- `Utils.swift`: Helper functions, image management, size class utilities
-- `Enums.swift`: Filter enums and navigation destinations
-- `Decodables.swift`: JSON parsing for dummy/seed data
+#### Image Management
+- `ImageManager.swift`: Singleton service for image operations
+  - 16:10 aspect ratio auto-cropping
+  - 30% JPEG compression
+  - Smart loading (bundle vs. documents)
+- `ImageCacher.swift`: NSCache-based in-memory caching (100 items, 500MB limit)
 
 #### Views (`/Views`)
-The app includes 14 view files organized by feature:
-- Landing/Home views
-- Movie creation, detail, list, and grid views
-- Actor creation, list, and grid views
-- Genre creation, list, and section views
-- Search interface
-- Reusable card components
+Modern SwiftUI views with glass-morphism design:
+- **Creation Forms**: Movie, Actor, Genre creation with vibrant gradients
+- **Detail Views**: Rich detail screens with interactive elements
+- **List Views**: Grid and scrollable list options
+- **Search**: Real-time search with debouncing
 
-## Features
+## UI Design Highlights
 
-### Core Functionality
-- ✅ Create, read, update, and delete movies, actors, and genres
-- ✅ Image management with local storage
-- ✅ Many-to-many relationships (movies ↔ actors ↔ genres)
-- ✅ Favorite marking for all entity types
-- ✅ Advanced filtering and search
-- ✅ SwiftData persistence
+### Color-Coded Entities
+- 🔵 **Movies**: Blue → Purple gradients
+- 💗 **Actors**: Pink → Purple gradients  
+- 💚 **Genres**: Green → Teal gradients
 
-### Data Management
-- **Image Storage**: Photos saved to documents directory with UUID-based naming
-- **Relationship Management**: Automatic inverse relationship handling
-- **Seed Data**: JSON-based dummy data loading on first launch
+### Selection Indicators
+- **Actors**: Green checkmark badge (bottom-trailing)
+- **Genres**: Gradient color swap (orange→red to green→teal)
 
-### User Interface
-- Native SwiftUI interface
-- Grid and list view options  
-- Size class adaptation for iPad
-- Navigation stack-based routing
-- Search functionality across all entities
+### Modern Components
+- Glass material cards with shadows
+- Gradient section headers
+- Interactive star ratings with rotation animation
+- Hero image sections with overlays
 
 ## Data Model
 
@@ -89,93 +150,20 @@ Movie ←→ Genre (many-to-many)
 ```
 
 ### Filtering
-The app supports sophisticated filtering:
-- **Movies**: by name, rating, year, genres, actors, favorite status
-- **Actors**: by name, movies, favorite status  
-- **Genres**: by name, movies, favorite status
+- **Movies**: by name, rating, year, genres, actors, favorites
+- **Actors**: by name, movies, favorites  
+- **Genres**: by name, movies, favorites
 
-## Setup and Installation
+## First Launch
 
-### Requirements
-- iOS 17.0+
-- Xcode 15.0+
-- Swift 5.9+
+On first app launch:
+1. Landing screen appears
+2. Database initialization
+3. Seed data loaded from `DummyData.json`
+4. Images automatically processed (cropped to 16:10, compressed)
+5. Main interface becomes available
 
-### First Launch
-On the first app launch:
-1. App displays a landing screen
-2. Database initialization occurs
-3. Dummy data is loaded from `DummyData.json`
-4. Main interface becomes available
-
-The seeding process is controlled by `UserDefaults` to run only once.
-
-## Technical Highlights
-
-### SwiftData Integration
-- Uses `@Model` macro for model definitions
-- `@Relationship` with inverse for bi-directional associations
-- `@Attribute(.unique)` for model identifiers
-- Custom `FetchDescriptor` with predicates for filtering
-
-### Actor-Based Data Layer
-Data sources use Swift's `actor` type with `@ModelActor` for:
-- Thread-safe database operations
-- Automatic model context injection
-- Safe concurrent access
-
-### Observable ViewModels
-ViewModels use Swift's `@Observable` macro (not Combine) for:
-- Automatic view updates
-- Clean, modern state management
-- No manual publishers needed
-
-### Image Management
-Custom `ImageManager` utility handles:
-- Saving images to documents directory
-- Loading from both bundle and documents
-- Smart filename detection (UUID vs. asset names)
-- Cleanup on deletion
-
-## File Structure
-
-```
-MovieLibrary/
-├── Model/
-│   ├── Movie.swift
-│   ├── MovieActor.swift
-│   └── Genre.swift
-├── ViewModel/
-│   ├── MovieViewModel.swift
-│   ├── ActorViewModel.swift
-│   ├── GenreViewModel.swift
-│   └── GlobalSearchViewModel.swift
-├── Data Source/
-│   ├── MovieDataSource.swift
-│   ├── ActorDataSource.swift
-│   ├── GenreDataSource.swift
-│   └── GlobalSearchDataSource.swift
-├── Views/
-│   ├── LandingView.swift
-│   ├── MovieView.swift
-│   ├── MovieCreationView.swift
-│   ├── MoviesListView.swift
-│   ├── MovieGridView.swift
-│   ├── MovieCardView.swift
-│   ├── ActorListView.swift
-│   ├── ActorGridView.swift
-│   ├── ActorCreationView.swift
-│   ├── GenreListView.swift
-│   ├── GenreCreationView.swift
-│   ├── GenreSectionView.swift
-│   ├── HeroSectionView.swift
-│   └── SearchView.swift
-├── Utilities/
-│   ├── Utils.swift
-│   ├── Enums.swift
-│   └── Decodables.swift
-└── MovieLibraryApp.swift
-```
+Seeding is controlled by `UserDefaults` to run only once.
 
 ## Code Examples
 
@@ -183,11 +171,10 @@ MovieLibrary/
 ```swift
 @Environment(MovieViewModel.self) private var movieViewModel
 
-// Add movie with image
 await movieViewModel.add(
     name: "Inception",
     photoData: selectedImageData,
-    summary: "A thief who steals corporate secrets through dream-sharing technology",
+    summary: "A thief who steals corporate secrets",
     rating: 9,
     movieActors: selectedActors,
     genres: selectedGenres,
@@ -195,60 +182,71 @@ await movieViewModel.add(
 )
 ```
 
-### Filtering Movies
+### Image Management
 ```swift
-// Filter by multiple criteria
-await movieViewModel.fetch(filters: [
-    .rating(9),
-    .releaseYear(2010),
-    .genres(Set(selectedGenreIds))
-])
+// Save with auto-crop and compression
+let filename = imageManager.save(imageData) // Returns UUID filename
+
+// Load with smart caching
+let image = imageManager.loadSmart(filename: filename)
+
+// Delete from both cache and disk
+imageManager.delete(filename: filename)
 ```
 
 ### Global Search
 ```swift
 @Environment(GlobalSearchViewModel.self) private var searchViewModel
 
-// Search across all entities
 await searchViewModel.fetchByPartialString("inception")
-// Results populate: searchViewModel.movies, searchViewModel.actors, searchViewModel.genres
+// Results: searchViewModel.movies, searchViewModel.actors, searchViewModel.genres
+```
+
+## Technical Stack
+
+- **Framework**: SwiftUI with modern design patterns
+- **Data Persistence**: SwiftData with actor-based data sources
+- **Image Processing**: UIKit + PhotosUI with custom cropping
+- **Caching**: NSCache for in-memory optimization
+- **Architecture**: MVVM with @Observable view models
+- **Navigation**: NavigationStack with type-safe routing
+
+## File Structure
+
+```
+MovieLibrary/
+├── Components/
+│   ├── ImageManager.swift (Singleton image service)
+│   └── ImageCacher.swift (NSCache wrapper)
+├── Model/ (SwiftData models)
+├── ViewModel/ (@Observable view models)
+├── Data Source/ (Actor-based data layer)
+├── Views/ (SwiftUI with modern design)
+└── Utilities/
 ```
 
 ## State Management
 
-The app uses a three-state AppState machine:
+Three-state AppState machine:
 1. **Landing**: Initial splash screen
-2. **StoringToDatabase**: Data seeding in progress
-3. **Ready**: App fully initialized and ready for use
+2. **StoringToDatabase**: Seed data processing
+3. **Ready**: App fully initialized
 
-State persistence via `@AppStorage` ensures seeding runs only once.
+## Image Storage
 
-## Database Location
-
-SwiftData storage location is logged on app launch:
-```
-print(URL.applicationSupportDirectory.path(percentEncoded: false))
-```
-
-Check console output to locate the `.sqlite` file for debugging.
-
-## Known Considerations
-
-- Some methods use force unwrapping (`!`) and may crash if entities don't exist in collections
-- Image deletion checks for UUID format (contains "-") to avoid deleting bundled assets
-- GlobalSearchViewModel has a typo in method name (`fetct` instead of `fetch`)
-- Debug print statements remain in production code
+- **Git LFS**: Full-resolution seed images in `Assets.xcassets`
+- **Runtime**: User photos compressed to 30% quality, 16:10 aspect ratio
+- **Location**: `Documents/` directory with UUID-based naming
+- **Cache**: In-memory NSCache (100 items max, 500MB limit)
 
 ## Future Enhancements
 
-Potential improvements:
-- Error handling instead of force unwraps
-- Loading states and progress indicators
-- Offline image caching
-- Export/import functionality
-- Cloud sync with CloudKit
-- Movie recommendations
-- Watch list feature
+- [ ] Error handling improvements
+- [ ] Loading states and progress indicators
+- [ ] Cloud sync with iCloud
+- [ ] Movie recommendations
+- [ ] Watch list feature
+- [ ] Export/import functionality
 
 ## Credits
 
