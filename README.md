@@ -250,10 +250,6 @@ Potential improvements:
 - Movie recommendations
 - Watch list feature
 
-## License
-
-[Add your license information here]
-
 ## Credits
 
 Created by NVR4GET
