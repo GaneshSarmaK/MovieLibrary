@@ -49,7 +49,7 @@ struct MovieGridView: View {
                             .glassEffect()
                             
                             Button(role: .cancel) {
-                                AppLogger.shared.info("\(movie.photoURL)")
+                                AppLogger.shared.info("\(String(describing: movie.photoURL))")
                                 router.path.append(.movieCreationView(movieViewModel.movies.first(where: {$0.id == movie.id }) ?? movie))
                             } label: {
                                 Label("Update", systemImage: "arrow.clockwise")

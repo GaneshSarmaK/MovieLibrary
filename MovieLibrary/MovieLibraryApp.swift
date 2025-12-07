@@ -9,16 +9,6 @@ import SwiftUI
 import SwiftData
 
 /**
- User defaults keys used throughout the app.
- 
- Centralizing keys here prevents typos and makes refactoring easier.
- */
-enum UserDefaultsKeys {
-    /// Key for storing whether the dummy data has been seeded to the database
-    static let isDataSavedToDatabase: String = "IS_DATA_SAVED_TO_DATABASE"
-}
-
-/**
  Application lifecycle states for the MovieLibrary app.
  
  The app progresses through these states on launch:

@@ -7,6 +7,17 @@
 
 import SwiftUI
 
+
+/**
+ User defaults keys used throughout the app.
+ 
+ Centralizing keys here prevents typos and makes refactoring easier.
+ */
+enum UserDefaultsKeys {
+    /// Key for storing whether the dummy data has been seeded to the database
+    static let isDataSavedToDatabase: String = "IS_DATA_SAVED_TO_DATABASE"
+}
+
 /**
  Filter options for querying actors from the database.
  

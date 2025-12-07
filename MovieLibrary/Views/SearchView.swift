@@ -62,11 +62,11 @@ struct SearchView: View {
                         .font(.headline)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding()
-                        .animation(.easeInOut)
+                        .animation(.easeInOut, value: searchText)
                     
                     ActorGridView()
                         .frame(height: SizeClass.imageSize(for: sizeClass) + 50)
-                        .animation(.easeInOut)
+                        .animation(.easeInOut, value: searchText)
             }
    
         }
