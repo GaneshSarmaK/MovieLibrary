@@ -218,5 +218,95 @@ extension View {
                 .stroke(color, lineWidth: width)
         )
     }
+    
+    /**
+     Applies a linear gradient as foreground style with customizable colors and opacities.
+     
+     This modifier simplifies the creation of gradient text and icons by accepting
+     two colors with optional opacity values and gradient direction.
+     
+     - Parameters:
+        - color1: The first color in the gradient
+        - opacity1: The opacity for the first color (default: 1.0)
+        - color2: The second color in the gradient
+        - opacity2: The opacity for the second color (default: 1.0)
+        - startPoint: The starting point of the gradient (default: .leading)
+        - endPoint: The ending point of the gradient (default: .trailing)
+     
+     - Returns: A view with a linear gradient applied as foreground style
+     
+     ## Example Usage
+     ```swift
+     Text("Hello")
+         .gradientForeground(.blue, .purple)
+     
+     Label("Info", systemImage: "info.circle")
+         .gradientForeground(.green, opacity1: 0.8, .teal, opacity2: 0.9)
+     ```
+     */
+    func gradientForeground(
+        _ color1: Color,
+        opacity1: Double = 1.0,
+        _ color2: Color,
+        opacity2: Double = 1.0,
+        startPoint: UnitPoint = .leading,
+        endPoint: UnitPoint = .trailing
+    ) -> some View {
+        self.foregroundStyle(
+            LinearGradient(
+                colors: [color1.opacity(opacity1), color2.opacity(opacity2)],
+                startPoint: startPoint,
+                endPoint: endPoint
+            )
+        )
+    }
+    
+    /**
+     Applies a linear gradient as a background with customizable colors and opacities.
+     
+     This modifier simplifies the creation of gradient backgrounds by accepting
+     two colors with optional opacity values, gradient direction, and a shape to fill.
+     
+     - Parameters:
+        - color1: The first color in the gradient
+        - opacity1: The opacity for the first color (default: 1.0)
+        - color2: The second color in the gradient
+        - opacity2: The opacity for the second color (default: 1.0)
+        - startPoint: The starting point of the gradient (default: .leading)
+        - endPoint: The ending point of the gradient (default: .trailing)
+        - shape: The shape to fill with the gradient (optional)
+     
+     - Returns: A view with a linear gradient applied as background
+     
+     ## Example Usage
+     ```swift
+     Text("Hello")
+         .padding()
+         .gradientBackground(.blue, .purple, shape: Capsule())
+     
+     VStack {
+         // content
+     }
+     .gradientBackground(.green, .teal, startPoint: .topLeading, endPoint: .bottomTrailing)
+     ```
+     */
+    func gradientBackground<S: Shape>(
+        _ color1: Color,
+        opacity1: Double = 1.0,
+        _ color2: Color,
+        opacity2: Double = 1.0,
+        startPoint: UnitPoint = .leading,
+        endPoint: UnitPoint = .trailing,
+        shape: S
+    ) -> some View {
+        self.background(
+            LinearGradient(
+                colors: [color1.opacity(opacity1), color2.opacity(opacity2)],
+                startPoint: startPoint,
+                endPoint: endPoint
+            ),
+            in: shape
+        )
+    }
 }
 

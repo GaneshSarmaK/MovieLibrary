@@ -129,14 +129,7 @@ struct ActorCreationView: View {
                     .foregroundStyle(.white)
                     .padding(.horizontal, 24)
                     .padding(.vertical, 12)
-                    .background(
-                        LinearGradient(
-                            colors: [.pink, .purple],
-                            startPoint: .leading,
-                            endPoint: .trailing
-                        ),
-                        in: Capsule()
-                    )
+                    .gradientBackground(.pink, .purple, shape: Capsule())
                     .shadow(color: .pink.opacity(0.4), radius: 8, x: 0, y: 4)
             }
         }
@@ -150,13 +143,7 @@ struct ActorCreationView: View {
             // Section header
             Label("Actor Information", systemImage: "person.fill")
                 .font(.headline)
-                .foregroundStyle(
-                    LinearGradient(
-                        colors: [.pink, .orange],
-                        startPoint: .leading,
-                        endPoint: .trailing
-                    )
-                )
+                .gradientForeground(.pink, .orange)
             
             // Name field
             VStack(alignment: .leading, spacing: 8) {
@@ -231,22 +218,20 @@ struct ActorCreationView: View {
             }
             router.path.removeLast()
         } label: {
+            let isDisabled = actorName.isEmpty || actorSummary.isEmpty || photoData == nil
             Label(movieActor == nil ? "Create Actor" : "Update Actor", 
                   systemImage: movieActor == nil ? "plus.circle.fill" : "checkmark.circle.fill")
                 .font(.headline)
                 .foregroundStyle(.white)
                 .frame(maxWidth: .infinity)
                 .padding()
-                .background(
-                    LinearGradient(
-                        colors: actorName.isEmpty || actorSummary.isEmpty || photoData == nil ? [Color.gray] : [Color.pink, Color.purple],
-                        startPoint: .leading,
-                        endPoint: .trailing
-                    ),
-                    in: Capsule()
+                .gradientBackground(
+                    isDisabled ? .gray : .pink,
+                    isDisabled ? .gray : .purple,
+                    shape: Capsule()
                 )
                 .shadow(
-                    color: (actorName.isEmpty || actorSummary.isEmpty || photoData == nil ? Color.gray : Color.pink).opacity(0.4),
+                    color: (isDisabled ? Color.gray : Color.pink).opacity(0.4),
                     radius: 10, x: 0, y: 5
                 )
         }

@@ -57,7 +57,7 @@ git lfs install
 
 ```bash
 # Clone the repo
-git clone https://github.com/yourusername/MovieLibrary.git
+git clone https://github.com/GaneshSarmaK/MovieLibrary.git
 cd MovieLibrary
 
 # Pull LFS files (images)

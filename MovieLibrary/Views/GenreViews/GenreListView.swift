@@ -103,20 +103,18 @@ struct GenreListView: View {
             .foregroundStyle(.white)
             .padding(.horizontal, 16)
             .padding(.vertical, 8)
-            .background(
-                LinearGradient(
-                    colors: isSelected ? [.green, .teal] : [.orange, .red],
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing
-                ),
-                in: Capsule()
+            .gradientBackground(
+                isSelected ? .green : .orange,
+                isSelected ? .teal : .red,
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing,
+                shape: Capsule()
             )
             .shadow(
                 color: isSelected ? .green.opacity(0.4) : .orange.opacity(0.4),
                 radius: 2, x: 0, y: 2
             )
             .animation(.bouncy, value: isSelected)
-            .shadow(color: .orange.opacity(0.4), radius: 4, x: 0, y: 2)
     }
     
     /**

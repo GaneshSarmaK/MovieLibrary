@@ -87,13 +87,7 @@ struct GenreCreationView: View {
                 
                 Image(systemName: "film.stack")
                     .font(.system(size: 70))
-                    .foregroundStyle(
-                        LinearGradient(
-                            colors: [.green, .teal],
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
-                        )
-                    )
+                    .gradientForeground(.green, .teal, startPoint: .topLeading, endPoint: .bottomTrailing)
             }
             
             Text("Genre")
@@ -110,13 +104,7 @@ struct GenreCreationView: View {
             // Section header
             Label("Genre Information", systemImage: "info.circle.fill")
                 .font(.headline)
-                .foregroundStyle(
-                    LinearGradient(
-                        colors: [.green, .teal],
-                        startPoint: .leading,
-                        endPoint: .trailing
-                    )
-                )
+                .gradientForeground(.green, .teal)
             
             // Name field
             VStack(alignment: .leading, spacing: 8) {
@@ -154,7 +142,7 @@ struct GenreCreationView: View {
         VStack(alignment: .leading, spacing: 12) {
             Label("Movies in this Genre", systemImage: "film.fill")
                 .font(.headline)
-                .foregroundStyle(.orange)
+                .gradientForeground(.green, .teal, startPoint: .topLeading, endPoint: .bottomTrailing)
             
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 15) {
@@ -190,22 +178,20 @@ struct GenreCreationView: View {
             }
             router.path.removeLast()
         } label: {
+            let isDisabled = genreName.isEmpty || genreSummary.isEmpty
             Label(genre == nil ? "Create Genre" : "Update Genre", 
                   systemImage: genre == nil ? "plus.circle.fill" : "checkmark.circle.fill")
                 .font(.headline)
                 .foregroundStyle(.white)
                 .frame(maxWidth: .infinity)
                 .padding()
-                .background(
-                    LinearGradient(
-                        colors: genreName.isEmpty || genreSummary.isEmpty ? [Color.gray] : [Color.green, Color.teal],
-                        startPoint: .leading,
-                        endPoint: .trailing
-                    ),
-                    in: Capsule()
+                .gradientBackground(
+                    isDisabled ? .gray : .green,
+                    isDisabled ? .gray : .teal,
+                    shape: Capsule()
                 )
                 .shadow(
-                    color: (genreName.isEmpty || genreSummary.isEmpty ? Color.gray : Color.green).opacity(0.4),
+                    color: (isDisabled ? Color.gray : Color.green).opacity(0.4),
                     radius: 10, x: 0, y: 5
                 )
         }

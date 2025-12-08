@@ -113,13 +113,7 @@ struct MovieView: View {
         VStack(spacing: 4) {
             Text(movie.name)
                 .font(.system(size: 32, weight: .bold, design: .rounded))
-                .foregroundStyle(
-                    LinearGradient(
-                        colors: [.blue, .purple],
-                        startPoint: .leading,
-                        endPoint: .trailing
-                    )
-                )
+                .gradientForeground(.blue, .purple)
                 .multilineTextAlignment(.center)
         }
         .frame(maxWidth: .infinity)
@@ -214,7 +208,7 @@ struct MovieView: View {
         VStack(alignment: .leading, spacing: 12) {
             Label("Genres", systemImage: "film")
                 .font(.headline)
-                .foregroundStyle(.orange)
+                .foregroundStyle(.green)
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 12) {
@@ -227,7 +221,7 @@ struct MovieView: View {
         }
         .padding()
         .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 20))
-        .shadow(color: .orange.opacity(0.2), radius: 8, x: 0, y: 4)
+        .shadow(color: .green.opacity(0.2), radius: 8, x: 0, y: 4)
     }
     
     @ViewBuilder private func genreChip(genre: Genre) -> some View {
@@ -236,14 +230,7 @@ struct MovieView: View {
             .foregroundStyle(.white)
             .padding(.horizontal, 16)
             .padding(.vertical, 8)
-            .background(
-                LinearGradient(
-                    colors: [.orange, .red],
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing
-                ),
-                in: Capsule()
-            )
+            .gradientBackground(.green, .teal, startPoint: .topLeading, endPoint: .bottomTrailing, shape: Capsule())
             .shadow(color: .orange.opacity(0.4), radius: 4, x: 0, y: 2)
     }
     

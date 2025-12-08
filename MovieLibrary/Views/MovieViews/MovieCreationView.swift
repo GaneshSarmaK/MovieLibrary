@@ -166,14 +166,7 @@ struct MovieCreationView: View {
                     .foregroundStyle(.white)
                     .padding(.horizontal, 24)
                     .padding(.vertical, 12)
-                    .background(
-                        LinearGradient(
-                            colors: [.blue, .purple],
-                            startPoint: .leading,
-                            endPoint: .trailing
-                        ),
-                        in: Capsule()
-                    )
+                    .gradientBackground(.blue, .purple, shape: Capsule())
                     .shadow(color: .blue.opacity(0.4), radius: 8, x: 0, y: 4)
             }
         }
@@ -187,13 +180,7 @@ struct MovieCreationView: View {
             // Section header
             Label("Basic Information", systemImage: "info.circle.fill")
                 .font(.headline)
-                .foregroundStyle(
-                    LinearGradient(
-                        colors: [.blue, .cyan],
-                        startPoint: .leading,
-                        endPoint: .trailing
-                    )
-                )
+                .gradientForeground(.blue, .cyan)
             
             // Title field
             VStack(alignment: .leading, spacing: 8) {
@@ -382,21 +369,19 @@ struct MovieCreationView: View {
             }
             router.path.removeLast()
         } label: {
+            let isDisabled = movieTitle.isEmpty || movieSummary.isEmpty || photoData == nil
             Label(movie == nil ? "Create Movie" : "Update Movie", systemImage: movie == nil ? "plus.circle.fill" : "checkmark.circle.fill")
                 .font(.headline)
                 .foregroundStyle(.white)
                 .frame(maxWidth: .infinity)
                 .padding()
-                .background(
-                    LinearGradient(
-                        colors: movieTitle.isEmpty || movieSummary.isEmpty || photoData == nil ? [Color.gray] : [Color.green, Color.blue],
-                        startPoint: .leading,
-                        endPoint: .trailing
-                    ),
-                    in: Capsule()
+                .gradientBackground(
+                    isDisabled ? .gray : .green,
+                    isDisabled ? .gray : .blue,
+                    shape: Capsule()
                 )
                 .shadow(
-                    color: (movieTitle.isEmpty || movieSummary.isEmpty || photoData == nil ? Color.gray : Color.green).opacity(0.4),
+                    color: (isDisabled ? Color.gray : Color.green).opacity(0.4),
                     radius: 10, x: 0, y: 5
                 )
         }
